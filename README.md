@@ -8,5 +8,6 @@ An open-source tycoon game with focus on factories and transportation
 
 -Organisation and task management:
  https://devtl.codecks.io/
+ 
 -GitHub Repository:
  https://github.com/DEvTL-Game-Development/Unititled-Tycoon-Game
