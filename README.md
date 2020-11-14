@@ -11,6 +11,9 @@ An open-source tycoon game with focus on factories and transportation
  
 -GitHub Repository:
  https://github.com/DEvTL-Game-Development/Unititled-Tycoon-Game
+ 
+ -Our e-mail:
+ devtl@outlook.de
 
 
 ## Credits and special Thanks
