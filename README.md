@@ -4,7 +4,7 @@ An open-source tycoon game with focus on factories and transportation
 ## Usefull Links
 
 -Discord invitation:
- https://discord.gg/tPYfzgC
+ https://discord.gg/3t4BueM
 
 -Organisation and task management:
  https://devtl.codecks.io/
