@@ -7,7 +7,7 @@ Project Description: An open-source tycoon game with focus on factories and tran
  https://discord.gg/3t4BueM
 
 -Organisation and task management:
- https://devtl.codecks.io/
+https://open.codecks.io/devtl
  
 -GitHub Repository:
  https://github.com/DEvTL-Game-Development/Unititled-Tycoon-Game
