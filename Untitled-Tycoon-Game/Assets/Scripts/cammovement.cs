@@ -63,8 +63,8 @@ public class cammovement : MonoBehaviour
     ///<summary>
     private void Rotation()
     {
-        rotationX += Input.GetAxis("Mouse X") * Time.deltaTime * panSpeed * 100f;
-        rotationY += Input.GetAxis("Mouse Y") * Time.deltaTime * panSpeed * 100f;
+        rotationX += Input.GetAxis("Mouse X") * Time.deltaTime * panSpeed * 60f;
+        rotationY += Input.GetAxis("Mouse Y") * Time.deltaTime * panSpeed * 60f;
         rotationY = Mathf.Clamp(rotationY, -30, 90);
         transform.localEulerAngles = new Vector3 (-rotationY, rotationX, 0);
     }
