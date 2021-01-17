@@ -2,13 +2,18 @@
 
 public class cammovement : MonoBehaviour
 {
-    public float panspeed = 20;
-    public float panBorderThickness = 10f;
-    public Vector2 panlimit;
-
-    public float scrollSpeed = 20f;
-    public float minY = 10f;
-    public float maxY = 10f;
+    [SerializeField]
+    private float panSpeed = 20f;
+    [SerializeField]
+    private float panBorderThickness = 10f;
+    [SerializeField]
+    private float scrollSpeed = 20f;
+    [SerializeField]
+    private Camera camera;
+    [SerializeField]
+    private float rotationX;
+    [SerializeField]
+    private float rotationY;
 
     // Update is called once per frame
     void Update()
@@ -17,34 +22,51 @@ public class cammovement : MonoBehaviour
 
         if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
         {
-            pos.z += panspeed * Time.deltaTime; 
+            pos.z += panSpeed * Time.deltaTime; 
         }
 
         if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
         {
-            pos.z -= panspeed * Time.deltaTime; 
+            pos.z -= panSpeed * Time.deltaTime; 
         }
 
         if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
         {
-            pos.x += panspeed * Time.deltaTime; 
+            pos.x += panSpeed * Time.deltaTime; 
         }
 
         if (Input.GetKey("a") || Input.mousePosition.x <= panBorderThickness)
         {
-            pos.x -= panspeed * Time.deltaTime; 
+            pos.x -= panSpeed * Time.deltaTime; 
         }
 
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        pos.y -= scroll * scrollSpeed * 100f * Time.deltaTime;
-
-        pos.x = Mathf.Clamp(pos.x, -panlimit.x, panlimit.x);
-        pos.z = Mathf.Clamp(pos.z, -panlimit.y, panlimit.y);
-
-        pos.y = Mathf.Clamp(pos.y, minY, maxY);
+        if (Input.GetKey("q"))
+        {
+            Rotation();
+        }
 
         transform.position = pos;
+
+        Zoom();
         
+    }
+
+    ///<summary>
+    ///zoom in camera with the scroll wheel
+    ///<summary>
+    private void Zoom()
+    {
+        camera.fieldOfView -= Input.GetAxis("Mouse ScrollWheel") * scrollSpeed;
+    }
+    ///<summary>
+    ///rotate the camera by holding Q and moving the mouse
+    ///<summary>
+    private void Rotation()
+    {
+        rotationX += Input.GetAxis("Mouse X") * Time.deltaTime * panSpeed * 100f;
+        rotationY += Input.GetAxis("Mouse Y") * Time.deltaTime * panSpeed * 100f;
+        rotationY = Mathf.Clamp(rotationY, -30, 90);
+        transform.localEulerAngles = new Vector3 (-rotationY, rotationX, 0);
     }
 
 }
