@@ -18,7 +18,19 @@ public class cammovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         Vector3 pos = transform.position;
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            panSpeed = panSpeed * 2f;
+        }
+
+        if (Input.GetKeyUp (KeyCode.LeftShift))
+        {
+            panSpeed = panSpeed / 2f;
+        }
 
         if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
         {
